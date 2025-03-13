@@ -1,0 +1,1007 @@
+/* ===========================
+   🌟 GLOBAL STYLES
+=========================== */
+* {
+    /* margin: 0; */
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    background-color: #f8f9fa;
+    color: #333333;
+    scroll-behavior: smooth;
+}
+
+/* ===========================
+   🌟 HEADER / NAVIGATION BAR
+=========================== */
+header {
+    background-color: transparent;
+    padding: 15px 0;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+    transition: 0.4s ease-in-out;
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.155);
+}
+
+/* Navbar Container */
+.nav-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 40px;
+}
+
+/* LOGO */
+.logo img {
+    height: 60px;
+    cursor: pointer;
+    transition: transform 0.3s ease-in-out;
+}
+
+.logo img:hover {
+    transform: scale(1.1);
+}
+
+/* NAVIGATION LINKS */
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 1.5rem;
+}
+
+.nav-links li {
+    position: relative;
+}
+
+/* Nav Links Styling */
+.nav-links a {
+    text-decoration: none;
+    color: rgb(0, 0, 0);
+    font-size: 1rem;
+    font-weight: bold;
+    padding: 10px;
+    transition: all 0.3s ease-in-out;
+}
+
+/* Hover Effects on Nav Links */
+.nav-links a:hover {
+    color: #ffcc00;
+    text-shadow: 2px 2px 5px rgba(255, 204, 0, 0.6);
+}
+
+/* ===========================
+   🌟 DROPDOWN MENU
+=========================== */
+.dropdown {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background: rgba(26, 133, 240, 0.95);
+    min-width: 220px;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(15px);
+    transition: all 0.3s ease-in-out;
+}
+
+/* Show Dropdown on Hover */
+.nav-links li:hover .dropdown,
+.nav-links li:focus-within .dropdown {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+/* Dropdown Items */
+.dropdown a {
+    display: block;
+    padding: 12px 20px;
+    font-size: 1rem;
+    color: white;
+    text-align: left;
+    transition: background 0.3s ease, padding-left 0.3s ease;
+}
+
+/* Hover Effects on Dropdown */
+.dropdown a:hover {
+    background: black;
+    color: white;
+    padding-left: 25px;
+    font-weight: bold;
+}
+
+/* Mobile-Friendly Dropdown */
+@media (max-width: 768px) {
+    .dropdown {
+        position: relative;
+        background: rgba(26, 133, 240, 1);
+        box-shadow: none;
+        width: 100%;
+    }
+
+    .dropdown a {
+        padding: 10px;
+    }
+}
+
+/* ===========================
+   🌟 STICKY NAVBAR ON SCROLL
+=========================== */
+header.sticky {
+    background: rgba(0, 0, 0, 0.9);
+    padding: 10px 0;
+}
+
+/* ===========================
+   🌟 MOBILE MENU (Hamburger)
+=========================== */
+.menu-toggle {
+    display: none;
+    cursor: pointer;
+    font-size: 28px;
+    color: white;
+}
+
+/* RESPONSIVE DESIGN */
+@media (max-width: 768px) {
+    .nav-container {
+        padding: 0 20px;
+    }
+
+    .menu-toggle {
+        display: block;
+    }
+
+    .nav-links {
+        position: absolute;
+        top: 100%;
+        right: 0;
+        background-color: rgba(26, 133, 240, 0.95);
+        flex-direction: column;
+        width: 250px;
+        height: 100vh;
+        align-items: flex-start;
+        padding: 20px;
+        transform: translateX(100%);
+        transition: transform 0.3s ease-in-out;
+    }
+
+    .nav-links.active {
+        transform: translateX(0);
+    }
+
+    .nav-links li {
+        width: 100%;
+    }
+
+    .nav-links a {
+        width: 100%;
+        display: block;
+        padding: 15px;
+    }
+}
+
+
+/* ===========================
+   🌟 FOOTER SECTION (Modern Design)
+=========================== */
+footer {
+    background-color: #1a1a1a;
+    color: #ffffff;
+    padding: 50px 0;
+    text-align: center;
+    font-size: 0.9rem;
+    line-height: 1.6;
+}
+
+/* Footer Container */
+.footer-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 30px;
+    gap: 2rem;
+}
+
+/* 🔹 Footer Contact Info */
+.footer-contact-us {
+    flex: 1;
+    min-width: 250px;
+    text-align: left;
+}
+
+.footer-contact-us h3 {
+    color: #ffcc00;
+    font-size: 1.4rem;
+    margin-bottom: 10px;
+    text-transform: uppercase;
+    border-bottom: 2px solid #ffcc00;
+    display: inline-block;
+    padding-bottom: 5px;
+}
+
+.footer-contact-us p {
+    color: #d3d3d3;
+    font-size: 1rem;
+    line-height: 1.8;
+}
+
+/* 🔹 Footer Logo Section */
+.footer-logo {
+    flex: 1;
+    min-width: 250px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.footer-logo img {
+    height: 100px;
+    margin-bottom: 15px;
+    transition: transform 0.3s ease-in-out;
+}
+
+.footer-logo img:hover {
+    transform: scale(1.1);
+}
+
+/* 🔹 Footer Navigation Links */
+.footer-nav-links {
+    margin-bottom: 10px;
+}
+
+.footer-nav-links a {
+    color: #ffcc00;
+    text-decoration: none;
+    margin: 0 10px;
+    font-size: 1rem;
+    transition: color 0.3s ease;
+}
+
+.footer-nav-links a:hover {
+    text-decoration: underline;
+    color: #ffffff;
+}
+
+/* 🔹 Social Media Icons */
+.footer-social-links {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    margin-top: 10px;
+}
+
+.footer-social-links img {
+    width: 40px;
+    height: 40px;
+    transition: transform 0.3s ease, filter 0.3s ease;
+    filter: grayscale(100%);
+}
+
+.footer-social-links img:hover {
+    transform: scale(1.1);
+    filter: grayscale(0%);
+}
+
+/* 🔹 Useful Links */
+.footer-useful-links {
+    flex: 1;
+    min-width: 250px;
+    text-align: left;
+}
+
+.footer-useful-links h3 {
+    font-size: 1.4rem;
+    color: #ffcc00;
+    margin-bottom: 10px;
+    border-bottom: 2px solid #ffcc00;
+    display: inline-block;
+    padding-bottom: 5px;
+}
+
+.footer-useful-links a {
+    color: #d3d3d3;
+    text-decoration: none;
+    font-size: 1rem;
+    display: block;
+    margin-bottom: 5px;
+    transition: color 0.3s ease, padding-left 0.2s ease;
+}
+
+.footer-useful-links a:hover {
+    color: #ffffff;
+    text-decoration: underline;
+    padding-left: 5px;
+}
+
+/* 🔹 Footer Description */
+.footer-description {
+    max-width: 1200px;
+    margin: 40px auto;
+    font-size: 1rem;
+    line-height: 1.8;
+    color: #d3d3d3;
+    padding: 0 20px;
+}
+
+/* 🔹 Footer Bottom Bar */
+.footer-bottom {
+    background-color: #ffcc00;
+    padding: 15px;
+    font-size: 1rem;
+    color: #000000;
+    font-weight: bold;
+    text-align: center;
+    text-transform: uppercase;
+}
+
+/* Responsive Footer */
+@media (max-width: 768px) {
+    .footer-container {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .footer-contact-us,
+    .footer-logo,
+    .footer-useful-links {
+        text-align: center;
+    }
+
+    .footer-social-links {
+        justify-content: center;
+    }
+}
+
+
+/* ===========================
+   🌟 HOME PAGE (index.html)
+=========================== */
+#home {
+    background-image: linear-gradient(rgba(9, 5, 54, 0.5), rgba(5, 4, 46, 0.8)), url("/Photos/college-home.jpg");
+    width: 100%;
+    height: 100vh;
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 20px;
+    position: relative;
+}
+
+/* Soft Transparent Overlay */
+#home::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.3); /* Low transparency effect */
+    z-index: 1;
+}
+
+/* Home Content */
+.home-content {
+    position: relative;
+    z-index: 2;
+    max-width: 900px;
+    padding: 20px;
+    text-align: center;
+}
+
+/* Heading Style */
+#home h2 {
+    color: white;
+    font-size: 3rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    margin-bottom: 20px;
+    animation: fadeInDown 1s ease-in-out;
+}
+
+/* Paragraph Style */
+#home p {
+    width: 75%;
+    color: white;
+    font-size: 1.2rem;
+    line-height: 1.8;
+    font-weight: 400;
+    margin-bottom: 30px;
+    animation: fadeInUp 1s ease-in-out;
+}
+
+/* Call to Action Button */
+.btn {
+    display: inline-block;
+    padding: 15px 35px;
+    font-size: 1.3rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    text-decoration: none;
+    color: white;
+    background: #ffcc00;
+    border-radius: 5px;
+    transition: 0.3s ease-in-out;
+    animation: fadeInUp 1.2s ease-in-out;
+}
+
+.btn:hover {
+    background: #ff9900;
+    transform: scale(1.05);
+}
+
+/* ===========================
+   🌟 ANIMATIONS
+=========================== */
+@keyframes fadeInDown {
+    from {
+        opacity: 0;
+        transform: translateY(-30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* ===========================
+   🌟 RESPONSIVE DESIGN
+=========================== */
+@media (max-width: 768px) {
+    #home h2 {
+        font-size: 2.4rem;
+    }
+
+    #home p {
+        width: 85%;
+        font-size: 1rem;
+    }
+
+    .btn {
+        font-size: 1.1rem;
+        padding: 12px 30px;
+    }
+}
+
+
+
+/* ===========================
+   🌟 COLLEGE GRID SECTION
+=========================== */
+.container {
+    max-width: 1200px;
+    margin: 50px auto;
+    padding: 40px 20px;
+    text-align: center;
+}
+
+/* Section Heading */
+.container h1 {
+    font-size: 2.2rem;
+    color: #1a1a1a;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    margin-bottom: 20px;
+    border-bottom: 3px solid #ffcc00;
+    display: inline-block;
+    padding-bottom: 8px;
+}
+
+/* Grid Layout */
+.cards-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+/* Card Styling */
+.card {
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 25px;
+    text-align: center;
+    transition: all 0.3s ease-in-out;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Hover Effects */
+.card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+/* Card Icon */
+.card img {
+    width: 60px;
+    height: 60px;
+    margin-bottom: 15px;
+    transition: transform 0.3s ease-in-out;
+}
+
+/* Hover Effect on Image */
+.card:hover img {
+    transform: scale(1.1);
+}
+
+/* Card Title */
+.card h3 {
+    font-size: 1.3rem;
+    color: #333;
+    margin-bottom: 10px;
+    font-weight: bold;
+}
+
+/* Card Description */
+.card p {
+    font-size: 1rem;
+    color: #666;
+    line-height: 1.6;
+    margin-bottom: 15px;
+}
+
+/* Read More Button */
+.card .read-more {
+    display: inline-block;
+    padding: 10px 20px;
+    background: #ffcc00;
+    color: #1a1a1a;
+    text-decoration: none;
+    font-size: 1rem;
+    font-weight: bold;
+    border-radius: 5px;
+    transition: background 0.3s ease-in-out;
+}
+
+/* Hover Effect on Button */
+.card .read-more:hover {
+    background: #ff9900;
+}
+
+/* ===========================
+   🌟 RESPONSIVE DESIGN
+=========================== */
+@media (max-width: 768px) {
+    .container h1 {
+        font-size: 1.8rem;
+    }
+
+    .cards-grid {
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    }
+
+    .card {
+        padding: 20px;
+    }
+
+    .card h3 {
+        font-size: 1.1rem;
+    }
+
+    .card p {
+        font-size: 0.9rem;
+    }
+}
+
+
+/* ===========================
+   🌟 SERVICES PAGE SECTION
+=========================== */
+.services-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 2rem;
+    max-width: 1200px;
+    margin: 80px auto;
+    padding: 20px;
+    text-align: center;
+}
+
+/* Section Heading */
+.services-container h1 {
+    font-size: 2.2rem;
+    color: #1a1a1a;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    margin-bottom: 20px;
+    border-bottom: 3px solid #ffcc00;
+    display: inline-block;
+    padding-bottom: 8px;
+}
+
+/* Grid Layout */
+.services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 20px;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+/* Service Card */
+.services-card {
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 25px;
+    text-align: center;
+    transition: all 0.3s ease-in-out;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Hover Effects */
+.services-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+/* Service Icon */
+.services-card img {
+    width: 80px;
+    height: 80px;
+    margin-bottom: 15px;
+    transition: transform 0.3s ease-in-out;
+}
+
+/* Hover Effect on Image */
+.services-card:hover img {
+    transform: scale(1.1);
+}
+
+/* Service Title */
+.services-card h3 {
+    font-size: 1.5rem;
+    color: #333;
+    margin-bottom: 10px;
+    font-weight: bold;
+}
+
+/* Service Description */
+.services-card p {
+    font-size: 1rem;
+    color: #666;
+    line-height: 1.6;
+    margin-bottom: 15px;
+}
+
+/* Read More Button */
+.services-card .services-button {
+    display: inline-block;
+    padding: 12px 25px;
+    background: #ffcc00;
+    color: #1a1a1a;
+    text-decoration: none;
+    font-size: 1rem;
+    font-weight: bold;
+    border-radius: 5px;
+    transition: background 0.3s ease-in-out;
+}
+
+/* Hover Effect on Button */
+.services-card .services-button:hover {
+    background: #ff9900;
+}
+
+/* ===========================
+   🌟 RESPONSIVE DESIGN
+=========================== */
+@media (max-width: 768px) {
+    .services-container h1 {
+        font-size: 1.8rem;
+    }
+
+    .services-grid {
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    }
+
+    .services-card {
+        padding: 20px;
+    }
+
+    .services-card h3 {
+        font-size: 1.2rem;
+    }
+
+    .services-card p {
+        font-size: 0.9rem;
+    }
+}
+
+
+/* ===========================
+   🌟 ABOUT PAGE STYLING
+=========================== */
+.about-section {
+    position: relative;
+    width: 100%;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: url("https://source.unsplash.com/1600x900/?education,students") no-repeat center center/cover;
+    padding: 100px 20px;
+}
+
+/* Dark Transparent Overlay */
+.about-section::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5); /* Dark overlay */
+}
+
+/* About Container */
+.about-container {
+    display: flex;
+    flex-direction: column; /* Stack items vertically */
+    align-items: center;
+    justify-content: center;
+    max-width: 900px;
+    margin: auto;
+    padding: 50px 20px;
+    position: relative;
+    z-index: 2;
+    text-align: center;
+}
+
+/* About Heading */
+.about-heading {
+    font-size: 2.5rem;
+    color: #ffcc00;
+    text-transform: uppercase;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+/* About Image Box */
+.about-image {
+    width: 100%;
+    max-width: 400px;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.about-image img {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease-in-out;
+}
+
+/* Hover Effect on Image */
+.about-image img:hover {
+    transform: scale(1.05);
+}
+
+/* About Content Box */
+.about-content {
+    background: rgba(255, 255, 255, 0.15); /* Glassmorphism effect */
+    padding: 35px;
+    border-radius: 15px;
+    backdrop-filter: blur(10px);
+    box-shadow: 0 6px 14px rgba(0, 0, 0, 0.2);
+    text-align: center;
+    animation: fadeInUp 1s ease-in-out;
+}
+
+/* Paragraph */
+.about-content p {
+    color: #000000;
+    font-size: 1.2rem;
+    line-height: 1.8;
+    margin-bottom: 15px;
+}
+
+/* Call-to-Action Button */
+.about-button {
+    display: inline-block;
+    padding: 14px 28px;
+    background: #ffcc00;
+    color: #222;
+    text-decoration: none;
+    font-size: 1.3rem;
+    font-weight: bold;
+    border-radius: 8px;
+    transition: background 0.3s ease-in-out, transform 0.2s ease-in-out;
+}
+
+/* Hover Effect */
+.about-button:hover {
+    background: #ff9900;
+    transform: scale(1.05);
+}
+
+/* ===========================
+   🌟 ANIMATIONS
+=========================== */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* ===========================
+   🌟 RESPONSIVE DESIGN
+=========================== */
+@media (max-width: 768px) {
+    .about-container {
+        padding: 30px 15px;
+    }
+
+    .about-content {
+        padding: 25px;
+    }
+
+    .about-button {
+        font-size: 1.1rem;
+        padding: 14px 24px;
+    }
+}
+
+
+
+
+
+/* ===========================
+   🌟 BLOG PAGE SECTION
+=========================== */
+.blog-container {
+    max-width: 1200px;
+    margin: 80px auto;
+    padding: 40px 20px;
+    text-align: center;
+}
+
+/* Section Heading */
+.blog-container h1 {
+    font-size: 2.5rem;
+    color: #1a1a1a;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    margin-bottom: 30px;
+    border-bottom: 3px solid #ffcc00;
+    display: inline-block;
+    padding-bottom: 8px;
+}
+
+/* Grid Layout */
+.blog-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 20px;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+/* Blog Card */
+.blog-card {
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 25px;
+    text-align: center;
+    transition: all 0.3s ease-in-out;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Hover Effects */
+.blog-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+/* Blog Image */
+.blog-card img {
+    width: 80px;
+    height: 80px;
+    margin-bottom: 15px;
+    transition: transform 0.3s ease-in-out;
+}
+
+/* Hover Effect on Image */
+.blog-card:hover img {
+    transform: scale(1.1);
+}
+
+/* Blog Title */
+.blog-card h3 {
+    font-size: 1.5rem;
+    color: #333;
+    margin-bottom: 10px;
+    font-weight: bold;
+}
+
+/* Blog Description */
+.blog-card p {
+    font-size: 1rem;
+    color: #666;
+    line-height: 1.6;
+    margin-bottom: 15px;
+}
+
+/* Read More Button */
+.blog-card .blog-button {
+    display: inline-block;
+    padding: 12px 25px;
+    background: #ffcc00;
+    color: #1a1a1a;
+    text-decoration: none;
+    font-size: 1rem;
+    font-weight: bold;
+    border-radius: 5px;
+    transition: background 0.3s ease-in-out;
+}
+
+/* Hover Effect on Button */
+.blog-card .blog-button:hover {
+    background: #ff9900;
+}
+
+/* ===========================
+   🌟 RESPONSIVE DESIGN
+=========================== */
+@media (max-width: 768px) {
+    .blog-container h1 {
+        font-size: 1.8rem;
+    }
+
+    .blog-grid {
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    }
+
+    .blog-card {
+        padding: 20px;
+    }
+
+    .blog-card h3 {
+        font-size: 1.2rem;
+    }
+
+    .blog-card p {
+        font-size: 0.9rem;
+    }
+}
+
+
