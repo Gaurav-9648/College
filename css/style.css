@@ -19,6 +19,7 @@ body {
 =========================== */
 header {
     background-color: transparent;
+    background-color:white;
     padding: 15px 0;
     position: fixed;
     width: 100%;
@@ -369,7 +370,8 @@ footer {
    🌟 HOME PAGE (index.html)
 =========================== */
 #home {
-    background-image: linear-gradient(rgba(9, 5, 54, 0.5), rgba(5, 4, 46, 0.8)), url("/Photos/college-home.jpg");
+    /* background-image: linear-gradient(rgba(9, 5, 54, 0.5), rgba(5, 4, 46, 0.8)), url("/Photos/college-home.jpg"); */
+    background-color: rgba(2, 4, 0, 0.856);
     width: 100%;
     height: 100vh;
     background-size: cover;
@@ -405,7 +407,7 @@ footer {
 }
 
 /* Heading Style */
-#home h2 {
+#home .home-text h2 {
     color: white;
     font-size: 3rem;
     font-weight: bold;
@@ -416,7 +418,7 @@ footer {
 }
 
 /* Paragraph Style */
-#home p {
+#home .home-text p {
     width: 75%;
     color: white;
     font-size: 1.2rem;
@@ -445,6 +447,18 @@ footer {
     background: #ff9900;
     transform: scale(1.05);
 }
+ /* paragraph and person  */
+ #home {
+    display: flex;
+    flex-direction:row;
+    
+    
+ }
+ #home .home-text {
+    /* display: flex; */
+    justify-content: center;
+    align-items: center;
+ }
 
 /* ===========================
    🌟 ANIMATIONS
